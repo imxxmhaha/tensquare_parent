@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>和生活接入用户中心返回页面</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<script src="../js/jquery.js"></script>
+<link rel="stylesheet" href="../style/back.css" />
+<script>
+$(function() {// 初始化内容
+	var html = "";
+	var optype = getParam("optype");
+		if("1"==optype) {
+			html = "升级通行证成功，请手动退出登录后使用互联网通行证及新密码重新登录！";
+		} else if("4"==optype || "6"==optype || "8"==optype || "9"==optype) {
+			html = "绑定成功，请手动退出登录后使用互联网通行证重新登录！"
+		} else if("5"==optype || "7"==optype ) {
+			html = "解除绑定成功，请手动退出登录后使用互联网通行证重新登录！"
+		} else if("10"==optype) {
+			html = "重置密码成功，请使用新密码重新登录！"
+		} else if("12"==optype) {
+			html = "修改密码成功，请使用新密码重新登录！"
+		}
+	$("#msg").html(html)
+	setTimeout(function() {
+// 		parent.window.location.href = "http://localhost:8081/index.html"
+// 		top.location.href = "http://10.12.12.108:8085/index.html"
+		window.location.href = "/index.html"
+	}, 2000)
+}); 
+
+
+function getParam(name){
+	  var value = location.search.match(new RegExp("[?&]"+name+"=([^&]*)(&?)", "i"));
+	  value = value ? decodeURIComponent(value[1]) : '100';
+	  return value;
+}
+</script>
+</head>
+<body>
+	<div id="nw_wrap">
+		<img src="../images/back.png" />
+		<p id="msg"></p>
+
+	</div>
+
+</body>
+</html>

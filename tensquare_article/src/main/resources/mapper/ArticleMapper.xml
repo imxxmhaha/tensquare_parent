@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tensquare.gathering.dao.ArticleDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.tensquare.gathering.pojo.Article">
+        <id column="id" property="id" />
+        <result column="columnid" property="columnid" />
+        <result column="userid" property="userid" />
+        <result column="title" property="title" />
+        <result column="content" property="content" />
+        <result column="image" property="image" />
+        <result column="createtime" property="createtime" />
+        <result column="updatetime" property="updatetime" />
+        <result column="ispublic" property="ispublic" />
+        <result column="istop" property="istop" />
+        <result column="visits" property="visits" />
+        <result column="thumbup" property="thumbup" />
+        <result column="comment" property="comment" />
+        <result column="state" property="state" />
+        <result column="channelid" property="channelid" />
+        <result column="url" property="url" />
+        <result column="type" property="type" />
+    </resultMap>
+
+</mapper>

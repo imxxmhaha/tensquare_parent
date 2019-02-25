@@ -1,0 +1,14 @@
+server:
+  port: 9009
+spring:
+  application:
+    name: tensquare-sms
+  rabbitmq:
+    host: 192.168.170.128
+aliyun:
+  sms:
+    accessKeyId: LTAIXMx8HeiTaCP6
+    accessKeySecret: 70J0rpKZk5OAIDkKXvIrkUweV4k6Fm
+    successTemplateCode: SMS_136855188 #注册成功提示模板
+    verrifyTemplateCode: SMS_136860141  #验证码模板
+    signName: 悠悠购

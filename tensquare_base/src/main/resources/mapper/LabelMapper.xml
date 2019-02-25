@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tensquare.base.dao.LabelDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.tensquare.base.pojo.Label">
+        <id column="id" property="id" />
+        <result column="labelname" property="labelname" />
+        <result column="state" property="state" />
+        <result column="count" property="count" />
+        <result column="recommend" property="recommend" />
+        <result column="fans" property="fans" />
+    </resultMap>
+
+    <select id="selectByPage" resultType="com.tensquare.base.pojo.Label">
+        select * from tb_label
+        <where>
+            <if test="label != null and label.labelname !=null">
+                and  labelname like  CONCAT('%', #{label.labelname}, '%')
+            </if>
+
+            <if test="label != null and label.state !=null">
+                and  state = #{label.state}
+            </if>
+
+            <if test="label != null and label.count !=null">
+                and  count = #{label.count}
+            </if>
+            <if test="label != null and label.recommend !=null">
+                and  recommend = #{label.recommend}
+            </if>
+            <if test="label != null and label.fans !=null">
+                and  fans = #{label.fans}
+            </if>
+        </where>
+    </select>
+
+</mapper>

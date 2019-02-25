@@ -1,0 +1,15 @@
+.Wdate{
+	border:#999 1px solid;
+	height:28px;
+	background-image: url("datePicker.gif");
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: right;
+}
+.datepicker input:HOVER{
+	cursor: pointer;
+}
+.WdateFmtErr{
+	font-weight:bold;
+	color:#f00;
+}

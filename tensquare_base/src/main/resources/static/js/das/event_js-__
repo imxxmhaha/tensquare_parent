@@ -1,0 +1,86 @@
+
+1====触发事件类型 Sender
+	0-页面加载采集   
+	c-页面单击采集  
+	hotSearch-搜索词加载采集
+	getImg-应用图片加载采集
+
+2====采集服务地址配置
+	track_web_url
+
+3====访问对象类型 
+res_type   0:新闻 1:应用 2:视频 3:栏目 5:广告 6:公告 7:商品 8:商户
+目前：只有 1:应用  3:栏目 5:广告   其它页面访问默认为栏目
+
+4====门户pageId
+从配置表中读取 dc_website_page
+
+5====第三方认证账号类型
+account_type_tag  0、其它 1、邮箱 2、QQ 3、微博 4、支付宝 5、微信
+
+6====
+有些参加参数进行了localStorage方式存储（比如，c_id，s_id），解决H5页面cookie不支持问题
+
+
+
+
+===资源编码获取逻辑：第三方应用可能出现的情况都加入获取计算
+var resourceid = urlArgsArray['resourceid'] || urlArgsArray['resid'] ; 
+if(typeof(resourceid)=="undefined" || ""==resourceid ){
+	resourceid = urlArgsArray['rescode'] || urlArgsArray['resCode'] ; 
+	if(typeof(resourceid)=="undefined" || ""==resourceid ){
+		resourceid = cu.get("resourceid") || cu.get("resourceId") ; 
+	}
+}
+
+
+
+
+
+/*
+//本地做一次采集数据日志统计
+var urlArgsArray = WssNet.Client.urlArgs;
+var du = WssNet.DomUtil;
+var area_id = cu.get("areaID")||'';
+if(area_id==""){
+	area_id=urlArgsArray['areacode'];
+}
+var ip = cu.get("ip");
+var visit_url = du.fix(escape(escape(location.href)));
+//增加区域code到后台
+var spec =  cu.get("areaFullSpell")||'';  
+if(spec==""){
+	var lochref = location.href;
+	var spec = lochref.substring(0,lochref.indexOf(".wxcs"));
+	if(spec.indexOf('http://') == 0){
+		spec = spec.substr(7, spec.length); // 去除http://
+	}
+	if(spec.indexOf('https://') == 0){
+		spec = spec.substr(8, spec.length); // 去除https://
+	}
+}
+var toDasFilter = WssNet.Client.Const.das_web_url+"/das/itr.js?f="+f+"&visit_url="+visit_url+"&ip="+ip+"&area_id="+area_id+"&area_full_spell="+spec+ "&random=" + cu.getRandomString(32) + "&";
+var imgp = new Image();
+imgp.src = toDasFilter;*/
+
+/*
+$.ajax({
+	type: "post",
+	url: s,
+	dataType: 'jsonp',
+	//async:false, //异步
+	xhrFields: { ////支持跨域发送cookies
+        withCredentials: true 
+    },
+    crossDomain: true,
+	success: function(){
+	},
+	error:function(e) {
+	}
+});*/
+
+
+
+
+
+

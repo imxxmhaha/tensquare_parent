@@ -1,0 +1,23 @@
+
+/**
+ * 加密（依赖aes.js）
+ * @param word 加密的字符串
+ * @returns {*}
+ */
+function encrypt(word){
+    var key = CryptoJS.enc.Utf8.parse(aeskey);
+    var srcs = CryptoJS.enc.Utf8.parse(word);
+    var encrypted = CryptoJS.AES.encrypt(srcs, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
+    return encrypted.toString();
+}
+
+/**
+ * 解密
+ * @param word 解密的字符串
+ * @returns {*}
+ */
+function decrypt(word){
+    var key = CryptoJS.enc.Utf8.parse("bWFsbHB3ZA==WNST");
+    var decrypt = CryptoJS.AES.decrypt(word, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
+    return CryptoJS.enc.Utf8.stringify(decrypt).toString();
+}
